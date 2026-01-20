@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kusal Maluwa Info</title>
+<title>Kusal Maluwa Foundation ID Info</title>
 
 <style>
 :root{
@@ -26,7 +26,6 @@ body{
   perspective:1200px;
 }
 
-/* ===== 3D BACKGROUND ===== */
 .bg-3d{
   position:fixed;
   inset:0;
@@ -40,7 +39,6 @@ body{
   100%{transform:rotateX(6deg) rotateY(-6deg);}
 }
 
-/* ===== HEADER ===== */
 header{
   text-align:center;
   padding:2rem 1rem;
@@ -49,7 +47,6 @@ header{
 header img{
   max-width:220px;
   animation:logoFloat 4s infinite ease-in-out;
-  filter:drop-shadow(0 15px 25px rgba(0,0,0,.6));
 }
 
 @keyframes logoFloat{
@@ -57,40 +54,25 @@ header img{
   50%{transform:translateY(-12px);}
 }
 
-header h1{
-  color:var(--orange);
-  margin-top:1rem;
-  text-shadow:0 4px 10px rgba(0,0,0,.6);
-}
-
-/* ===== MAIN ===== */
 main{
   max-width:1100px;
   margin:auto;
-  padding:2rem 1.5rem 4rem;
+  padding:2rem;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:2rem;
 }
 
-/* ===== INFO CARDS ===== */
 .card{
   background:linear-gradient(145deg,#ff9800,#e65100);
   padding:2rem;
   border-radius:20px;
   box-shadow:0 20px 40px rgba(0,0,0,.5);
-  transition:.4s;
-  transform-style:preserve-3d;
 }
 
-.card:hover{
-  transform:translateY(-10px) rotateX(6deg) rotateY(-6deg);
-}
-
-/* ===== ID CARD ===== */
 .id-card{
   grid-column:1/-1;
-  background:linear-gradient(145deg,#fff,#ffe0b2);
+  background:#fff;
   color:#000;
   padding:2rem;
   border-radius:20px;
@@ -100,24 +82,17 @@ main{
   justify-content:center;
 }
 
-.photo-wrap{
-  position:relative;
-}
-
 .photo-wrap img:first-child{
   width:200px;
   border-radius:12px;
-  box-shadow:0 10px 20px rgba(0,0,0,.4);
 }
 
 .photo-wrap img:last-child{
   position:absolute;
-  top:-15px;
-  right:-15px;
   width:70px;
   border-radius:50%;
-  background:#fff;
-  box-shadow:0 8px 18px rgba(0,0,0,.5);
+  top:-10px;
+  right:-10px;
 }
 
 .id-info{
@@ -125,7 +100,6 @@ main{
   color:#fff;
   padding:1.5rem;
   border-radius:16px;
-  max-width:420px;
 }
 
 .call-btn{
@@ -139,26 +113,12 @@ main{
   font-weight:bold;
 }
 
-/* ===== 3D COMMENT BOX ===== */
+/* COMMENT */
 .comment-3d{
   grid-column:1/-1;
   background:linear-gradient(145deg,#ff9800,#e65100);
-  padding:2.5rem;
+  padding:2rem;
   border-radius:25px;
-  box-shadow:
-    0 30px 60px rgba(0,0,0,.6),
-    inset 0 2px 0 rgba(255,255,255,.3);
-  transform-style:preserve-3d;
-  transition:.5s;
-}
-
-.comment-3d:hover{
-  transform:rotateX(8deg) rotateY(-8deg) translateY(-10px);
-}
-
-.comment-3d h2{
-  text-align:center;
-  margin-bottom:1.5rem;
 }
 
 .comment-3d form{
@@ -168,37 +128,39 @@ main{
 
 .comment-3d input,
 .comment-3d textarea{
-  padding:.9rem 1rem;
+  padding:.9rem;
+  border-radius:10px;
   border:none;
-  border-radius:12px;
-  font-size:1rem;
-}
-
-.comment-3d textarea{
-  min-height:130px;
 }
 
 .comment-3d button{
   background:#fff;
   color:var(--orange);
-  font-weight:bold;
-  padding:.9rem;
+  padding:.8rem;
   border:none;
+  border-radius:10px;
+  font-weight:bold;
+}
+
+#commentList{
+  margin-top:1rem;
+  background:#fff;
+  color:#000;
+  padding:1rem;
   border-radius:12px;
-  cursor:pointer;
-  transition:.3s;
+  max-height:300px;
+  overflow-y:auto;
 }
 
-.comment-3d button:hover{
-  background:#ffe0b2;
+.comment-item{
+  border-bottom:1px solid #ddd;
+  padding:.5rem 0;
 }
 
-/* ===== FOOTER ===== */
 footer{
   text-align:center;
-  padding:1.5rem;
+  padding:1rem;
   background:rgba(0,0,0,.6);
-  font-size:.9rem;
 }
 </style>
 </head>
@@ -215,12 +177,12 @@ footer{
 
 <div class="card">
 <h2>අප ගැන</h2>
-<p> කුසල් මළුව පදනම යනු සමාජ සේවය, සංස්කෘතික වටිනාකම් ආරක්ෂා කිරීම සහ කරුණාවෙන් පිරි ජන සේවය සඳහා කැපවූ සංවිධානයකි. </p>
+<p>කුසල් මළුව පදනම යනු සමාජ සේවය සඳහා කැපවූ සංවිධානයකි.</p>
 </div>
 
 <div class="card">
 <h2>අපගේ මෙහෙවර</h2>
-<p> ⁣⁣⁣හේතුඵලවාදි රටක් අවිහිංසාවාදී හෙටක් උදෙසා සියලු දෙනා සුවපත් කිරීම උදෙසා පමණි... අන් සරණක් නැත යන්න තෙරුවන් සරණ යන්න සැමට ආරාධනා... [ කුසල් මළුව පදනමට එක් වන්න ] </p>
+<p>හේතුඵලවාදි රටක් අවිහිංසාවාදී හෙටක් උදෙසා.</p>
 </div>
 
 <section class="id-card">
@@ -238,20 +200,58 @@ footer{
   </div>
 </section>
 
-<!-- 3D COMMENT BOX -->
 <section class="comment-3d">
-  <h2>Comment / Message</h2>
+<h2>Comments</h2>
 
-  <form action="mailto:kusalmaluwa06@gmail.com" method="post" enctype="text/plain">
-    <input type="text" name="Name" placeholder="ඔබගේ නම" required>
-    <input type="email" name="Email" placeholder="ඔබගේ Email">
-    <textarea name="Message" placeholder="ඔබගේ message එක මෙතන ලියන්න" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
+<form id="commentForm">
+  <input type="text" id="name" placeholder="ඔබගේ නම" required>
+  <textarea id="message" placeholder="ඔබගේ message එක" required></textarea>
+  <button type="submit">Send</button>
+</form>
+
+<div id="commentList"></div>
 </section>
 
 </main>
 
 <footer>© 2026 Kusal Maluwa Foundation</footer>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+const form = document.getElementById("commentForm");
+const list = document.getElementById("commentList");
+
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  db.collection("comments").add({
+    name: name.value,
+    message: message.value,
+    time: firebase.firestore.FieldValue.serverTimestamp()
+  });
+  form.reset();
+});
+
+db.collection("comments").orderBy("time","desc")
+.onSnapshot(snapshot=>{
+  list.innerHTML="";
+  snapshot.forEach(doc=>{
+    const c=doc.data();
+    list.innerHTML+=`<div class="comment-item"><b>${c.name}</b><br>${c.message}</div>`;
+  });
+});
+</script>
+
 </body>
-</html> 
+</htm
