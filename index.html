@@ -6,71 +6,221 @@
 <title>Kusal Maluwa Foundation ID Info</title>
 
 <style>
+:root{--orange:#f57c00;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif}
+
 body{
+  min-height:100vh;
   background:radial-gradient(circle at top,#ff9800,#000);
-  font-family:Segoe UI,sans-serif;
   color:#fff;
+  perspective:1200px;
 }
-.comment-box{
-  max-width:500px;
-  margin:60px auto;
+
+.bg-3d{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(120deg,rgba(255,152,0,.15),rgba(0,0,0,.9));
+  animation:bg 10s infinite alternate ease-in-out;
+  z-index:-1;
+}
+@keyframes bg{to{transform:rotateX(6deg) rotateY(-6deg)}}
+
+header{text-align:center;padding:2rem}
+header img{max-width:220px;animation:float 4s infinite}
+@keyframes float{50%{transform:translateY(-12px)}}
+header h1{color:var(--orange)}
+
+main{
+  max-width:1100px;
+  margin:auto;
+  padding:2rem;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:2rem;
+}
+
+.card{
   background:linear-gradient(145deg,#ff9800,#e65100);
-  padding:25px;
+  padding:2rem;
   border-radius:20px;
-  box-shadow:0 20px 40px rgba(0,0,0,.6);
+  box-shadow:0 20px 40px rgba(0,0,0,.5);
 }
-.comment-box h2{
-  text-align:center;
-  margin-bottom:15px;
-}
-input,textarea{
-  width:100%;
-  padding:12px;
-  margin:8px 0;
-  border:none;
-  border-radius:10px;
-}
-button{
-  width:100%;
-  padding:12px;
+
+.id-card{
+  grid-column:1/-1;
   background:#fff;
-  color:#f57c00;
-  font-weight:bold;
-  border:none;
-  border-radius:10px;
-  cursor:pointer;
+  color:#000;
+  padding:2rem;
+  border-radius:20px;
+  display:flex;
+  gap:2rem;
+  justify-content:center;
+  flex-wrap:wrap;
 }
-button:hover{background:#ffe0b2;}
+
+.photo-wrap{position:relative}
+.photo-wrap img:first-child{width:200px;border-radius:12px}
+.photo-wrap img:last-child{
+  position:absolute;top:-12px;right:-12px;
+  width:70px;border-radius:50%;background:#fff;
+}
+
+.id-info{
+  background:var(--orange);
+  color:#fff;
+  padding:1.5rem;
+  border-radius:16px;
+}
+
+.call-btn{
+  display:inline-block;
+  margin-top:1rem;
+  padding:.7rem 1.2rem;
+  background:#fff;
+  color:var(--orange);
+  border-radius:8px;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+/* COMMENT */
+.comment-3d{
+  grid-column:1/-1;
+  background:linear-gradient(145deg,#ff9800,#e65100);
+  padding:2rem;
+  border-radius:25px;
+}
+
+.comment-3d form{display:grid;gap:1rem}
+.comment-3d input,.comment-3d textarea{
+  padding:.9rem;border:none;border-radius:10px
+}
+.comment-3d button{
+  background:#fff;color:var(--orange);
+  padding:.8rem;border:none;border-radius:10px;
+  font-weight:bold;cursor:pointer;
+}
+
+#commentList{
+  margin-top:1rem;
+  background:#fff;
+  color:#000;
+  padding:1rem;
+  border-radius:12px;
+  max-height:300px;
+  overflow-y:auto;
+}
+.comment-item{border-bottom:1px solid #ddd;padding:.5rem 0}
+
+footer{text-align:center;padding:1rem;background:rgba(0,0,0,.6)}
 </style>
 </head>
 
 <body>
+<div class="bg-3d"></div>
 
-<div class="comment-box">
-  <h2>Comment / Message</h2>
+<header>
+  <img src="https://i.ibb.co/nqLnn09y/nq-Lnn09y.png">
+  <h1>Kusal Maluwa Foundation<br>ID Info</h1>
+</header>
 
-  <form onsubmit="sendWhatsApp(); return false;">
-    <input type="text" id="name" placeholder="ඔබගේ නම" required>
-    <textarea id="message" placeholder="ඔබගේ message එක" required></textarea>
-    <button type="submit">Send via WhatsApp</button>
-  </form>
+<main>
+
+<div class="card">
+<h2>අප ගැන</h2>
+<p>කුසල් මළුව පදනම යනු සමාජ සේවය සඳහා කැපවූ සංවිධානයකි.</p>
 </div>
 
+<div class="card">
+<h2>අපගේ මෙහෙවර</h2>
+<p>හේතුඵලවාදි රටක් අවිහිංසාවාදී හෙටක් උදෙසා.</p>
+</div>
+
+<section class="id-card">
+  <div class="photo-wrap">
+    <img src="https://files.catbox.moe/lfhkci.jpg">
+    <img src="https://files.catbox.moe/f2uzv8.jpg">
+  </div>
+
+  <div class="id-info">
+    <h3>W.g.m.r Dharmasiri</h3>
+    <p><b>Position:</b> සභාපති</p>
+    <p><b>NIC:</b> 852530251</p>
+    <p><b>Phone:</b> +94 75 610 7149</p>
+    <a class="call-btn" href="tel:+94756107149">Call Now</a>
+  </div>
+</section>
+
+<section class="comment-3d">
+<h2>Comments</h2>
+
+<form id="commentForm">
+  <input type="text" id="name" placeholder="ඔබගේ නම" required>
+  <textarea id="message" placeholder="ඔබගේ message එක" required></textarea>
+  <button type="submit">Send</button>
+</form>
+
+<div id="commentList"></div>
+</section>
+
+</main>
+
+<footer>© 2026 Kusal Maluwa Foundation</footer>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
 <script>
-function sendWhatsApp(){
-  const name = document.getElementById("name").value;
-  const msg  = document.getElementById("message").value;
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID"
+};
 
-  const phone = "94756107149"; // 0756107149
-  const text =
-    "📩 New Comment - Kusal Maluwa Foundation\n\n" +
-    "👤 Name: " + name + "\n\n" +
-    "💬 Message:\n" + msg;
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 
-  const url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(text);
-  window.open(url,"_blank");
-}
+const form = document.getElementById("commentForm");
+const list = document.getElementById("commentList");
+
+form.addEventListener("submit", e=>{
+  e.preventDefault();
+
+  const n = name.value;
+  const m = message.value;
+
+  // Save comment
+  db.collection("comments").add({
+    name:n,
+    message:m,
+    time:firebase.firestore.FieldValue.serverTimestamp()
+  });
+
+  // WhatsApp open
+  const wa =
+   "https://wa.me/94756107149?text=" +
+   encodeURIComponent(
+    "📩 New Comment - Kusal Maluwa Foundation\n\n👤 Name: "+n+"\n\n💬 Message:\n"+m
+   );
+  window.open(wa,"_blank");
+
+  form.reset();
+});
+
+// Live comments
+db.collection("comments").orderBy("time","desc")
+.onSnapshot(snap=>{
+  list.innerHTML="";
+  snap.forEach(d=>{
+    const c=d.data();
+    list.innerHTML+=`
+      <div class="comment-item">
+        <b>${c.name}</b><br>${c.message}
+      </div>`;
+  });
+});
 </script>
 
 </body>
-<
+</html>
