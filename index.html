@@ -92,8 +92,9 @@ main{
 }
 
 .comment-3d form{display:grid;gap:1rem}
-.comment-3d input,.comment-3d textarea{
-  padding:.9rem;border:none;border-radius:10px
+.comment-3d textarea{
+  padding:.9rem;border:none;border-radius:10px;
+  min-height:120px;
 }
 .comment-3d button{
   background:#fff;color:var(--orange);
@@ -152,11 +153,10 @@ footer{text-align:center;padding:1rem;background:rgba(0,0,0,.6)}
 </section>
 
 <section class="comment-3d">
-<h2>Comments</h2>
+<h2>Comment / Message</h2>
 
 <form id="commentForm">
-  <input type="text" id="name" placeholder="ඔබගේ නම" required>
-  <textarea id="message" placeholder="ඔබගේ message එක" required></textarea>
+  <textarea id="message" placeholder="ඔබගේ message එක මෙතන ලියන්න" required></textarea>
   <button type="submit">Send</button>
 </form>
 
@@ -187,22 +187,21 @@ const list = document.getElementById("commentList");
 form.addEventListener("submit", e=>{
   e.preventDefault();
 
-  const n = name.value;
   const m = message.value;
 
-  // Save comment
+  // Save comment (public)
   db.collection("comments").add({
-    name:n,
     message:m,
     time:firebase.firestore.FieldValue.serverTimestamp()
   });
 
-  // WhatsApp open
+  // WhatsApp message only
   const wa =
    "https://wa.me/94756107149?text=" +
    encodeURIComponent(
-    "📩 New Comment - Kusal Maluwa Foundation\n\n👤 Name: "+n+"\n\n💬 Message:\n"+m
+    "📩 New Message - Kusal Maluwa Foundation\n\n💬 Message:\n"+m
    );
+
   window.open(wa,"_blank");
 
   form.reset();
@@ -215,9 +214,7 @@ db.collection("comments").orderBy("time","desc")
   snap.forEach(d=>{
     const c=d.data();
     list.innerHTML+=`
-      <div class="comment-item">
-        <b>${c.name}</b><br>${c.message}
-      </div>`;
+      <div class="comment-item">${c.message}</div>`;
   });
 });
 </script>
